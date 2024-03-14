@@ -22,7 +22,7 @@ The database is built in PostgreSQL 16. The following features still need to be 
 - [ ] POS
 - [ ] Access Control
 ### Current Structure
-![Database UML](https://github.com/RehmanMuaz/GymManager/tree/master/Readme/DB2.png)
+![Database UML](https://github.com/RehmanMuaz/GymManager/blob/master/Readme/DB2.png)
 
 ## Backend
 Coming Soon
