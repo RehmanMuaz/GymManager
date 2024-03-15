@@ -1,5 +1,5 @@
-using GymManager.Components;
-using GymManager.Infrastructure.Data;
+using GM.Web.Components;
+using GM.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddDbContext<GMContext>(dbBuilder =>
+builder.Services.AddDbContext<GMDbContext>(dbBuilder =>
 {
     dbBuilder.UseNpgsql(builder.Configuration["GMDBConnection"]);
 });
