@@ -1,4 +1,9 @@
 ﻿@page "/weather"
+@    using GymManager.Data;
+    using GymManager.Infrastructure.Data
+
+@inject GMContext context
+
 @attribute [StreamRendering]
 
 <PageTitle>Weather</PageTitle>
@@ -13,6 +18,8 @@
 }
 else
 {
+    <h1>@context.Members.FirstOrDefault()?.LastName</h1>
+
     <table class="table">
         <thead>
             <tr>

@@ -1,10 +1,18 @@
 using GymManager.Components;
+using GymManager.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddDbContext<GMContext>(dbBuilder =>
+{
+    dbBuilder.UseNpgsql(builder.Configuration["GMDBConnection"]);
+});
 
 var app = builder.Build();
 
