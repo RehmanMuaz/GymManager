@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace GM.Core.Interfaces
 {
-    public interface ITransactionRepository : IDisposable
+    public interface ITransactionRepository
     {
-        IEnumerable<IMemberRepository> GetTransactions();
-        Member GetTransactionByID(int transactionID);
-        Member GetTransactionByMemberID(int memberID);
-        void InsertTransaction(Transaction transaction);
-        void DeleteTransaction(int transactionID);
-        void UpdateTransaction(int transactionID);
-        void Save();
+        Task<IEnumerable<Transaction>> GetTransactions();
+        Task<Transaction> GetTransactionByID(string transactionID);
+		Task<Transaction> GetTransactionByMemberID(int memberID);
+        Task InsertTransaction(Transaction transaction);
+		Task DeleteTransaction(int transactionID);
+		Task UpdateTransaction(int transactionID);
+		Task Save();
     }
 }

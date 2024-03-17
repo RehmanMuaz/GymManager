@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Options;
 using GM.Core.Models;
 
-namespace GM.Infrastructure.Data
+namespace GM.Core.Data
 {
     public class GMDbContext : DbContext
     {

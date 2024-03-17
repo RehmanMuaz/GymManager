@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace GymManager.Migrations
+namespace GM.Core.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration
@@ -26,7 +26,7 @@ namespace GymManager.Migrations
                     Address = table.Column<string>(type: "text", nullable: false),
                     PostalCode = table.Column<string>(type: "text", nullable: false),
                     MembershipType = table.Column<string>(type: "text", nullable: false),
-                    CardId = table.Column<string>(type: "text", nullable: false),
+                    CardId = table.Column<string>(type: "text", nullable: true),
                     StartDate = table.Column<DateOnly>(type: "date", nullable: false),
                     CancelDate = table.Column<DateOnly>(type: "date", nullable: true),
                     EndDate = table.Column<DateOnly>(type: "date", nullable: true),

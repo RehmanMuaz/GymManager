@@ -8,6 +8,6 @@ namespace GM.Core.Models
         public DateTime Timestamp { get; set; }
         public decimal Amount { get; set; }
         public string Method { get; set; }
-        public Member Member { get; set; }
+        public int MemberId { get; set; }
     }
 }

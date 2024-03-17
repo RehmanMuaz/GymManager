@@ -1,7 +1,9 @@
 using GM.Web.Components;
-using GM.Infrastructure.Data;
+using GM.Core.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using GM.Core.Repositories;
+using GM.Core.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,12 @@ builder.Services.AddDbContext<GMDbContext>(dbBuilder =>
     dbBuilder.UseNpgsql(builder.Configuration["GMDBConnection"]);
 });
 
+
+//builder.Services.AddSingleton<IMemberRepository, MemberRepository>();
+builder.Services.AddScoped<ITransactionRepository, TransactionRepository>();
+
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,10 +32,13 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 app.UseAntiforgery();
+
+app.MapControllers();
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
